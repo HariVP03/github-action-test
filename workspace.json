@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "github-actions-test-lol": "apps/github-actions-test-lol",
+    "github-actions-test-lol-e2e": "apps/github-actions-test-lol-e2e"
+  }
+}
