@@ -4,11 +4,11 @@ name: CI
 on:
   push:
     branches:
-      - 'feat/github-actions' # TODO: Only for testing purposes. Change to '**' later.
+      - '**' # TODO: Only for testing purposes. Change to '**' later.
 
   pull_request:
     branches:
-      - 'feat/github-actions' # TODO: Only for testing purposes. Change to '**' later.
+      - '**' # TODO: Only for testing purposes. Change to '**' later.
 
 jobs:
   build:
