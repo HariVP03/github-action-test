@@ -1447,6 +1447,15 @@
     confusing-browser-globals "^1.0.9"
     semver "7.3.4"
 
+"@nrwl/express@14.5.5":
+  version "14.5.5"
+  resolved "https://registry.yarnpkg.com/@nrwl/express/-/express-14.5.5.tgz#33c7c83811e915ea7cbae992406a3b22258c8cc4"
+  integrity sha512-Y1UArOOtE1YDRYuESA1dr27p5KyksOJFz8hFbyzua0prldvAH4f6WYNAUCow3RmoiAbINV5xLu3bekpdFZwfMA==
+  dependencies:
+    "@nrwl/devkit" "14.5.5"
+    "@nrwl/node" "14.5.5"
+    "@nrwl/workspace" "14.5.5"
+
 "@nrwl/jest@14.5.5":
   version "14.5.5"
   resolved "https://registry.yarnpkg.com/@nrwl/jest/-/jest-14.5.5.tgz#3fbdc1da09cd7af41ce569e0f2ad734e3e75f003"
@@ -1496,6 +1505,37 @@
     nx "14.5.5"
     tmp "~0.2.1"
     tslib "^2.3.0"
+
+"@nrwl/node@14.5.5":
+  version "14.5.5"
+  resolved "https://registry.yarnpkg.com/@nrwl/node/-/node-14.5.5.tgz#7accb57691ec50b3c35de6ba4104bc3c87fa0550"
+  integrity sha512-aOxOzHyjIFBYnlNj+QtfH2IBu4obWWSv6ylWOSbcizrbdGly2PcXcCYt2vLduaHYZaBSgujT+EXZ96hOIvGnIA==
+  dependencies:
+    "@nrwl/devkit" "14.5.5"
+    "@nrwl/jest" "14.5.5"
+    "@nrwl/js" "14.5.5"
+    "@nrwl/linter" "14.5.5"
+    "@nrwl/workspace" "14.5.5"
+    chalk "4.1.0"
+    copy-webpack-plugin "^10.2.4"
+    dotenv "~10.0.0"
+    enhanced-resolve "^5.8.3"
+    fork-ts-checker-webpack-plugin "7.2.13"
+    fs-extra "^10.1.0"
+    glob "7.1.4"
+    license-webpack-plugin "^4.0.2"
+    rxjs "^6.5.4"
+    source-map-support "0.5.19"
+    terser-webpack-plugin "^5.3.3"
+    tree-kill "1.2.2"
+    ts-loader "^9.3.1"
+    ts-node "10.9.1"
+    tsconfig-paths "^3.9.0"
+    tsconfig-paths-webpack-plugin "3.5.2"
+    tslib "^2.3.0"
+    webpack "^5.58.1"
+    webpack-merge "^5.8.0"
+    webpack-node-externals "^3.0.0"
 
 "@nrwl/react@14.5.5":
   version "14.5.5"
@@ -2038,7 +2078,7 @@
     "@types/qs" "*"
     "@types/range-parser" "*"
 
-"@types/express@*", "@types/express@^4.17.13":
+"@types/express@*", "@types/express@4.17.13", "@types/express@^4.17.13":
   version "4.17.13"
   resolved "https://registry.yarnpkg.com/@types/express/-/express-4.17.13.tgz#a76e2995728999bab51a33fabce1d705a3709034"
   integrity sha512-6bSZTPaTIACxn48l50SR+axgrqm6qXFIxrdAKaG6PaJk3+zuUr35hBlgT7vOmJcum+OEaIBLtHV/qloEAFITeA==
@@ -4439,7 +4479,7 @@ expect@^27.5.1:
     jest-matcher-utils "^27.5.1"
     jest-message-util "^27.5.1"
 
-express@^4.17.3:
+express@^4.17.3, express@^4.18.1:
   version "4.18.1"
   resolved "https://registry.yarnpkg.com/express/-/express-4.18.1.tgz#7797de8b9c72c857b9cd0e14a5eea80666267caf"
   integrity sha512-zZBcOX9TfehHQhtupq57OF8lFZ3UZi08Y97dwFCkD8p9d/d2Y3M+ykKcwaMDEL+4qyUolgBDX6AblpR3fL212Q==
@@ -6615,7 +6655,7 @@ nwsapi@^2.2.0:
   resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.1.tgz#10a9f268fbf4c461249ebcfe38e359aa36e2577c"
   integrity sha512-JYOWTeFoS0Z93587vRJgASD5Ut11fYl5NyihP3KrYBvMe1FRRs6RN7m20SA/16GM4P6hTnZjT+UmDOt38UeXNg==
 
-nx@14.5.5:
+nx@14.5.5, nx@^14.5.5:
   version "14.5.5"
   resolved "https://registry.yarnpkg.com/nx/-/nx-14.5.5.tgz#5adda9408bf3aab5b2d24c7f89fca95922351240"
   integrity sha512-wIamIK3JIDYnlcnJdSB9YI59xbOYL6MubgK6xvtmtKOpZVUTEWd7wXtEb1DbE/7upAwtBxI+fu7gnXJ2qTxsFA==
