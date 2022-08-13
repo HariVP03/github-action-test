@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: CI
+on:
+  push:
+    branches:
+      - 'feat/github-actions' # TODO: Only for testing purposes. Change to '**' later.
+
+  pull_request:
+    branches:
+      - 'feat/github-actions' # TODO: Only for testing purposes. Change to '**' later.
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Getting the code
+        uses: actions/checkout@v3
+
+      - name: Setting up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
+
+      - name: Installing dependencies
+        run: yarn
+
+      - name: Building affected targets only
+        run: yarn nx affected:build --base= origin/main --head=HEAD
