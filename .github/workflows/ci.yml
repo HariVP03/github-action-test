@@ -36,7 +36,7 @@ jobs:
         id: affected
 
       - run: |
-          text=${steps.affected.outputs.apps}
+          text=${{steps.affected.outputs.apps}}
           text="${text//$'%'/%25}"
           text="${text//$'\n'/%0A}"
           text="${text//$'\r'/%0D}"
