@@ -1,0 +1,427 @@
+{
+  "graph": {
+    "nodes": {
+      "github-actions-test-lol-e2e": {
+        "name": "github-actions-test-lol-e2e",
+        "type": "e2e",
+        "data": {
+          "root": "apps/github-actions-test-lol-e2e",
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "apps/github-actions-test-lol-e2e/src",
+          "projectType": "application",
+          "targets": {
+            "e2e": {
+              "executor": "@nrwl/cypress:cypress",
+              "options": {
+                "cypressConfig": "apps/github-actions-test-lol-e2e/cypress.config.ts",
+                "devServerTarget": "github-actions-test-lol:serve:development",
+                "testingType": "e2e"
+              },
+              "configurations": {
+                "production": {
+                  "devServerTarget": "github-actions-test-lol:serve:production"
+                }
+              }
+            },
+            "lint": {
+              "executor": "@nrwl/linter:eslint",
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "options": {
+                "lintFilePatterns": [
+                  "apps/github-actions-test-lol-e2e/**/*.{js,ts}"
+                ]
+              }
+            }
+          },
+          "tags": [],
+          "implicitDependencies": [
+            "github-actions-test-lol"
+          ],
+          "files": [
+            {
+              "file": "apps/github-actions-test-lol-e2e/.eslintrc.json",
+              "hash": "4c5989b23b5aa8cc7aba2a07d1ae7daee19c1555"
+            },
+            {
+              "file": "apps/github-actions-test-lol-e2e/cypress.config.ts",
+              "hash": "22f7c84eb637d4f23447fcb59dee130dd25b2de0",
+              "deps": [
+                "npm:cypress",
+                "npm:@nrwl/cypress"
+              ]
+            },
+            {
+              "file": "apps/github-actions-test-lol-e2e/project.json",
+              "hash": "7f9734344c01a03f7af1e24d76c0a5555eb32607"
+            },
+            {
+              "file": "apps/github-actions-test-lol-e2e/src/e2e/app.cy.ts",
+              "hash": "3f8a4564ff21160b2965bab5dfe3ddbe67d09e2a"
+            },
+            {
+              "file": "apps/github-actions-test-lol-e2e/src/fixtures/example.json",
+              "hash": "294cbed6ce9e0b948b787452e8676aee486cb3be"
+            },
+            {
+              "file": "apps/github-actions-test-lol-e2e/src/support/app.po.ts",
+              "hash": "32934246969c2ecb827ac05677785933a707a54d"
+            },
+            {
+              "file": "apps/github-actions-test-lol-e2e/src/support/commands.ts",
+              "hash": "310f1fa0e043ffebbbcf575c5a4d17f13a6b14d6"
+            },
+            {
+              "file": "apps/github-actions-test-lol-e2e/src/support/e2e.ts",
+              "hash": "3d469a6b6cf31eb66117d73e278bcf74f398f1db"
+            },
+            {
+              "file": "apps/github-actions-test-lol-e2e/tsconfig.json",
+              "hash": "cc509a730e12498509bb7475f6f54b1a18021191"
+            }
+          ]
+        }
+      },
+      "github-actions-test-lol": {
+        "name": "github-actions-test-lol",
+        "type": "app",
+        "data": {
+          "root": "apps/github-actions-test-lol",
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "apps/github-actions-test-lol/src",
+          "projectType": "application",
+          "targets": {
+            "build": {
+              "executor": "@nrwl/web:webpack",
+              "outputs": [
+                "{options.outputPath}"
+              ],
+              "defaultConfiguration": "production",
+              "options": {
+                "compiler": "babel",
+                "outputPath": "dist/apps/github-actions-test-lol",
+                "index": "apps/github-actions-test-lol/src/index.html",
+                "baseHref": "/",
+                "main": "apps/github-actions-test-lol/src/main.tsx",
+                "polyfills": "apps/github-actions-test-lol/src/polyfills.ts",
+                "tsConfig": "apps/github-actions-test-lol/tsconfig.app.json",
+                "assets": [
+                  "apps/github-actions-test-lol/src/favicon.ico",
+                  "apps/github-actions-test-lol/src/assets"
+                ],
+                "styles": [
+                  "apps/github-actions-test-lol/src/styles.css"
+                ],
+                "scripts": [],
+                "webpackConfig": "@nrwl/react/plugins/webpack"
+              },
+              "configurations": {
+                "development": {
+                  "extractLicenses": false,
+                  "optimization": false,
+                  "sourceMap": true,
+                  "vendorChunk": true
+                },
+                "production": {
+                  "fileReplacements": [
+                    {
+                      "replace": "apps/github-actions-test-lol/src/environments/environment.ts",
+                      "with": "apps/github-actions-test-lol/src/environments/environment.prod.ts"
+                    }
+                  ],
+                  "optimization": true,
+                  "outputHashing": "all",
+                  "sourceMap": false,
+                  "namedChunks": false,
+                  "extractLicenses": true,
+                  "vendorChunk": false
+                }
+              },
+              "dependsOn": [
+                "^build"
+              ]
+            },
+            "serve": {
+              "executor": "@nrwl/web:dev-server",
+              "defaultConfiguration": "development",
+              "options": {
+                "buildTarget": "github-actions-test-lol:build",
+                "hmr": true
+              },
+              "configurations": {
+                "development": {
+                  "buildTarget": "github-actions-test-lol:build:development"
+                },
+                "production": {
+                  "buildTarget": "github-actions-test-lol:build:production",
+                  "hmr": false
+                }
+              }
+            },
+            "lint": {
+              "executor": "@nrwl/linter:eslint",
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "options": {
+                "lintFilePatterns": [
+                  "apps/github-actions-test-lol/**/*.{ts,tsx,js,jsx}"
+                ]
+              }
+            },
+            "test": {
+              "executor": "@nrwl/jest:jest",
+              "outputs": [
+                "coverage/apps/github-actions-test-lol"
+              ],
+              "options": {
+                "jestConfig": "apps/github-actions-test-lol/jest.config.ts",
+                "passWithNoTests": true
+              }
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "apps/github-actions-test-lol/.babelrc",
+              "hash": "61641ec8ac3659e204441c80bb06defe323e3110"
+            },
+            {
+              "file": "apps/github-actions-test-lol/.browserslistrc",
+              "hash": "f1d12df4faa25ab7f0f03196105e957395f609af"
+            },
+            {
+              "file": "apps/github-actions-test-lol/.eslintrc.json",
+              "hash": "734ddaceea447738208c9519158ad6b3062f3929"
+            },
+            {
+              "file": "apps/github-actions-test-lol/jest.config.ts",
+              "hash": "a0c01319b9f71a6d1c2761447ba004b564b01657"
+            },
+            {
+              "file": "apps/github-actions-test-lol/project.json",
+              "hash": "33fe5de0adcb8d4dc298303cf6868340e4248556"
+            },
+            {
+              "file": "apps/github-actions-test-lol/src/app/app.module.css",
+              "hash": "7b88fbabf87b258bc8a0cc5b78800551134ca195"
+            },
+            {
+              "file": "apps/github-actions-test-lol/src/app/app.spec.tsx",
+              "hash": "57f8b5454210cc2c04598fd9bb118d5e88bc5a97",
+              "deps": [
+                "npm:@testing-library/react"
+              ]
+            },
+            {
+              "file": "apps/github-actions-test-lol/src/app/app.tsx",
+              "hash": "000e5691e070993df0725ddd8ae53f4860f10810"
+            },
+            {
+              "file": "apps/github-actions-test-lol/src/app/nx-welcome.tsx",
+              "hash": "5e1ba69e57583eab3835f6e375837d216ed8313d"
+            },
+            {
+              "file": "apps/github-actions-test-lol/src/assets/.gitkeep",
+              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+            },
+            {
+              "file": "apps/github-actions-test-lol/src/environments/environment.prod.ts",
+              "hash": "c9669790be176ac85a5d8c11278875c2f52dc507"
+            },
+            {
+              "file": "apps/github-actions-test-lol/src/environments/environment.ts",
+              "hash": "7ed83767fff25adfed19d52b2821a432f8ed18b1"
+            },
+            {
+              "file": "apps/github-actions-test-lol/src/favicon.ico",
+              "hash": "317ebcb2336e0833a22dddf0ab287849f26fda57"
+            },
+            {
+              "file": "apps/github-actions-test-lol/src/index.html",
+              "hash": "edde4e9012c94e2a4b8dab5accf225cb2445aacc"
+            },
+            {
+              "file": "apps/github-actions-test-lol/src/main.tsx",
+              "hash": "5b0ece955a67a0ed4b2032934cb10e6e9109e1ec",
+              "deps": [
+                "npm:react",
+                "npm:react-dom"
+              ]
+            },
+            {
+              "file": "apps/github-actions-test-lol/src/polyfills.ts",
+              "hash": "2adf3d05b6fcf479dd61c74f6bda95d9edb6ac6b",
+              "deps": [
+                "npm:core-js",
+                "npm:regenerator-runtime"
+              ]
+            },
+            {
+              "file": "apps/github-actions-test-lol/src/styles.css",
+              "hash": "90d4ee0072ce3fc41812f8af910219f9eea3c3de"
+            },
+            {
+              "file": "apps/github-actions-test-lol/tsconfig.app.json",
+              "hash": "af84f21cfc8066d0302f5772b7c157e81d418617"
+            },
+            {
+              "file": "apps/github-actions-test-lol/tsconfig.json",
+              "hash": "9657042e495d5b69d338455a91b5fcaae1bddff3"
+            },
+            {
+              "file": "apps/github-actions-test-lol/tsconfig.spec.json",
+              "hash": "b8a950754b6152f8b12188ac8bd1d289ccbf57ce"
+            }
+          ]
+        }
+      },
+      "api": {
+        "name": "api",
+        "type": "app",
+        "data": {
+          "root": "apps/api",
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "apps/api/src",
+          "projectType": "application",
+          "targets": {
+            "build": {
+              "executor": "@nrwl/node:webpack",
+              "outputs": [
+                "{options.outputPath}"
+              ],
+              "options": {
+                "outputPath": "dist/apps/api",
+                "main": "apps/api/src/main.ts",
+                "tsConfig": "apps/api/tsconfig.app.json",
+                "assets": [
+                  "apps/api/src/assets"
+                ]
+              },
+              "configurations": {
+                "production": {
+                  "optimization": true,
+                  "extractLicenses": true,
+                  "inspect": false,
+                  "fileReplacements": [
+                    {
+                      "replace": "apps/api/src/environments/environment.ts",
+                      "with": "apps/api/src/environments/environment.prod.ts"
+                    }
+                  ]
+                }
+              },
+              "dependsOn": [
+                "^build"
+              ]
+            },
+            "serve": {
+              "executor": "@nrwl/node:node",
+              "options": {
+                "buildTarget": "api:build"
+              },
+              "configurations": {
+                "production": {
+                  "buildTarget": "api:build:production"
+                }
+              }
+            },
+            "lint": {
+              "executor": "@nrwl/linter:eslint",
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "options": {
+                "lintFilePatterns": [
+                  "apps/api/**/*.ts"
+                ]
+              }
+            },
+            "test": {
+              "executor": "@nrwl/jest:jest",
+              "outputs": [
+                "coverage/apps/api"
+              ],
+              "options": {
+                "jestConfig": "apps/api/jest.config.ts",
+                "passWithNoTests": true
+              }
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "apps/api/.eslintrc.json",
+              "hash": "9d9c0db55bb1e91c5f2e7b64a02bc6bf69fc7cb5"
+            },
+            {
+              "file": "apps/api/jest.config.ts",
+              "hash": "d8f47750a856dd0c1c731c1100998d3cda3e492b"
+            },
+            {
+              "file": "apps/api/project.json",
+              "hash": "70c0a3e6d112692d7440a8d7121adc1d9f8fd5bb"
+            },
+            {
+              "file": "apps/api/src/app/.gitkeep",
+              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+            },
+            {
+              "file": "apps/api/src/assets/.gitkeep",
+              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+            },
+            {
+              "file": "apps/api/src/environments/environment.prod.ts",
+              "hash": "c9669790be176ac85a5d8c11278875c2f52dc507"
+            },
+            {
+              "file": "apps/api/src/environments/environment.ts",
+              "hash": "a20cfe55731540eac839ab33f9ce1eaa6da50b16"
+            },
+            {
+              "file": "apps/api/src/main.ts",
+              "hash": "3980e0b79dfaa4950f305181944d4d1f66a1fefb",
+              "deps": [
+                "npm:express"
+              ]
+            },
+            {
+              "file": "apps/api/tsconfig.app.json",
+              "hash": "eec612ac4d5b01cd70192ab057407f9bde87fdc4"
+            },
+            {
+              "file": "apps/api/tsconfig.json",
+              "hash": "63dbe35fb282d5f9ac4a724607173e6316269e29"
+            },
+            {
+              "file": "apps/api/tsconfig.spec.json",
+              "hash": "546f12877f7f05dd2e7b8782c7d6eae8189c34c0"
+            }
+          ]
+        }
+      }
+    },
+    "dependencies": {
+      "github-actions-test-lol-e2e": [
+        {
+          "source": "github-actions-test-lol-e2e",
+          "target": "github-actions-test-lol",
+          "type": "implicit"
+        }
+      ],
+      "github-actions-test-lol": [],
+      "api": []
+    }
+  },
+  "affectedProjects": [
+    "api",
+    "github-actions-test-lol-e2e",
+    "github-actions-test-lol"
+  ],
+  "criticalPath": [
+    "api",
+    "github-actions-test-lol-e2e",
+    "github-actions-test-lol"
+  ]
+}
