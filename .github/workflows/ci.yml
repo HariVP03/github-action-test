@@ -32,15 +32,16 @@ jobs:
       - name: Installing dependencies
         run: yarn
 
-      - run: yarn nx print-affected --select=projects --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
+      - run: echo "::set-output name=apps::$(yarn nx print-affected --select=projects --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }})"
         id: affected
 
-      - run: |
-          text=${{steps.affected.outputs.apps}}
-          text="${text//$'%'/%25}"
-          text="${text//$'\n'/%0A}"
-          text="${text//$'\r'/%0D}"
-          echo ${{text}}
+      - uses: jungwinter/split@v2
+        id: split
+        with:
+          msg: steps.affected.outputs
+          seperator: '\n'
+
+      - run: echo ${{ steps.split.outputs._2 }}
 
       # - name: Building affected targets only
       #   run: yarn nx affected:build --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
