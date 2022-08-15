@@ -45,7 +45,7 @@ jobs:
           # end of optional handling for multi line json
           echo "::set-output name=JSON::$content"
       - run: |
-          echo "${{fromJson(steps.set_var.outputs.JSON).affectedProjects}}"
+          echo "${{contains(fromJson(steps.set_var.outputs.JSON).affectedProjects, 'api')}}"
 
       # - name: Building affected targets only
       #   run: yarn nx affected:build --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
