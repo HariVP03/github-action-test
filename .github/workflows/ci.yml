@@ -37,10 +37,10 @@ jobs:
 
       - run: |
           text=${{steps.affected.outputs.apps}}
-          text="${text//$'%'/%25}"
-          text="${text//$'\n'/%0A}"
-          text="${text//$'\r'/%0D}"
-          echo ${text}
+          text="${{text//$'%'/%25}}"
+          text="${{text//$'\n'/%0A}}"
+          text="${{text//$'\r'/%0D}}"
+          echo ${{text}}
 
       # - name: Building affected targets only
       #   run: yarn nx affected:build --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
