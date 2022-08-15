@@ -41,7 +41,7 @@ jobs:
           msg: steps.affected.outputs
           seperator: '\n'
 
-      - run: echo ${{ steps.split.outputs._0 }}
+      - run: echo ${{ steps.split.outputs._1 }}
 
       # - name: Building affected targets only
       #   run: yarn nx affected:build --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
