@@ -32,7 +32,7 @@ jobs:
       - name: Installing dependencies
         run: yarn
 
-      - run: echo "::set-output name=apps::$(yarn nx print-affected --select=projects --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }})"
+      - run: yarn nx print-affected --select=projects --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
         id: affected
 
       - run: |
