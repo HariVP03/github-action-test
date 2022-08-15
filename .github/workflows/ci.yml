@@ -37,9 +37,9 @@ jobs:
 
       - run: |
           text=${{steps.affected.outputs.apps}}
-          text="${{text//$'%'/%25}}"
-          text="${{text//$'\n'/%0A}}"
-          text="${{text//$'\r'/%0D}}"
+          text="${text//$'%'/%25}"
+          text="${text//$'\n'/%0A}"
+          text="${text//$'\r'/%0D}"
           echo ${{text}}
 
       # - name: Building affected targets only
