@@ -14,6 +14,6 @@ app.get('/api', (req, res) => {
 
 const port = process.env.port || 3333;
 const server = app.listen(port, () => {
-  console.log(`Listening on ${wantSex} http://localhost:${port}/api`);
+  console.log(`Listening on ${wantSex} h ttp://localhost:${port}/api`);
 });
 server.on('error', console.error);
