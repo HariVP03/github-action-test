@@ -23,14 +23,19 @@ jobs:
 
       - uses: nrwl/nx-set-shas@v2
 
-      - name: Setting up Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-          cache: 'yarn'
+      - uses: yarn nx print-affected --select=projects --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
+        id: affected
 
-      - name: Installing dependencies
-        run: yarn
+      - run: echo ${{ steps.affected.outputs }}
 
-      - name: Building affected targets only
-        run: yarn nx affected:build --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
+      # - name: Setting up Node
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: '16'
+      #     cache: 'yarn'
+
+      # - name: Installing dependencies
+      #   run: yarn
+
+      # - name: Building affected targets only
+      #   run: yarn nx affected:build --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
