@@ -35,7 +35,7 @@ jobs:
       - run: yarn nx print-affected --select=projects --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
         id: affected
 
-      - run: echo ${{ toJSON(steps.affected.outputs.stdout) }}
+      - run: echo ${{ steps.affected.outputs.stdout }}
 
       # - name: Building affected targets only
       #   run: yarn nx affected:build --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
