@@ -47,5 +47,5 @@ jobs:
       - run: |
           echo "${{contains(fromJson(steps.set_var.outputs.JSON).affectedProjects, 'api')}}"
 
-      # - name: Building affected targets only
+      # - name: Building affected target s only
       #   run: yarn nx affected:build --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
